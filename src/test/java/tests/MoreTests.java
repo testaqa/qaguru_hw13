@@ -1,10 +1,12 @@
 package tests;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.exist;
 
+@Feature("login and logout tests")
 public class MoreTests extends BaseTest{
 
     @Test
