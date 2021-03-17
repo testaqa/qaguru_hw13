@@ -2,6 +2,7 @@ package tests;
 
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +31,7 @@ public class MoreTests extends BaseTest{
 
     @Test
     @AllureId("1963")
+    @DisplayName("Sushi Page Title")
     @Tag("web")
     void SushiPageTitle() {
         step("Open Sushi page", () -> {
