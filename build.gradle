@@ -7,20 +7,23 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
     mavenCentral()
 }
 
 def allureVersion = "2.13.8",
     selenideVersion = "5.19.0",
     junitVersion = "5.7.0",
-    ownerVersion = "1.0.12"
+    ownerVersion = "1.0.12",
+    allureTestopsVersion = "3.28.2"
 
 dependencies {
     implementation("org.aeonbits.owner:owner:${ownerVersion}")
     testImplementation(
             "com.codeborne:selenide:${selenideVersion}",
             "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
-            "io.qameta.allure:allure-selenide:${allureVersion}")
+            "io.qameta.allure:allure-selenide:${allureVersion}",
+            "io.qameta.allure:allure-ee-junit-platform:${allureTestopsVersion}")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 }
 
@@ -39,6 +42,7 @@ allure {
 
 tasks.withType(Test) {
     systemProperties += System.properties
+    System.setProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 
     if (System.getProperty("threads") != null) {
         systemProperties += [
