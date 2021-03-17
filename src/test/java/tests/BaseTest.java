@@ -20,13 +20,12 @@ public class BaseTest {
         SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(true));
 
         DriverHelper.configureDriver();
-
-        open("");
     }
 
     @BeforeEach
     public void BeforeEach() {
 
+        open("");
         HomePage homePage = new HomePage();
         if (homePage.citySelection.size() > 0) {
             homePage.citySelection.first().click();
